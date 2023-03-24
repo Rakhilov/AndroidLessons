@@ -21,10 +21,12 @@ public class SecondActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivitySecondBinding binding;
 
+    private TextView textViewName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        String text = (String) getIntent().getSerializableExtra("key");
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -41,6 +43,19 @@ public class SecondActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        TextView textView = (TextView) findViewById(R.id.textview_first);
+
+        String intentInfo = (String) getIntent().getSerializableExtra("fio");
+
+        textView.setText(intentInfo);
+
+        TextView textViewInput = (TextView) findViewById(R.id.textViewInput);
+
+        String intentInfoInput = (String) getIntent().getSerializableExtra("input");
+
+        textViewInput.setText(intentInfoInput);
+
     }
 
     @Override
